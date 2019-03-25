@@ -3,12 +3,12 @@
 // I also followed along with the international morse code alphabet https://en.wikipedia.org/wiki/Morse_code#/media/File:International_Morse_Code.svg to help with setting up and syncing the
 // multiple LEDs.
 char input;
-int speakerPin = 10;
+int buzzerPin = 10;
 void setup () {
   pinMode (13, OUTPUT);
   pinMode (12, OUTPUT);
   pinMode (11, OUTPUT);
-  pinMode(speakerPin, OUTPUT);
+  pinMode(buzzerPin, OUTPUT);
   Serial.begin(9600);
 }
 
@@ -96,11 +96,13 @@ void n9 () {dash();dash();dash();dash();dot();shortspace();}
 void n0 () {dash();dash();dash();dash();dash();shortspace();}
 
 // geen light
-void space () {digitalWrite(11, HIGH); delay (1000); digitalWrite(11, LOW); delay(500);}//space between words
+void space () {digitalWrite(11, HIGH); delay (1000); digitalWrite(11, LOW); delay(500); tone(buzzerPin, 262);}//space between words
+
 // red light
-void dot () {digitalWrite(13, HIGH); delay (300); digitalWrite(13, LOW); delay (300);}
+void dot () {digitalWrite(13, HIGH); delay (300); digitalWrite(13, LOW); delay (300); tone(buzzerPin, 262);}
+
 // blue light
-void dash () {digitalWrite(12, HIGH); delay (900); digitalWrite(12, LOW); delay (300);}
+void dash () {digitalWrite(12, HIGH); delay (900); digitalWrite(12, LOW); delay (300); tone(buzzerPin, 262);}
 
 // green light
-void shortspace () {digitalWrite(11, HIGH); delay(600); digitalWrite(11, LOW); delay(300);}//space between letters
+void shortspace () {digitalWrite(11, HIGH); delay(600); digitalWrite(11, LOW); delay(300); tone(buzzerPin, 262);}//space between letters
