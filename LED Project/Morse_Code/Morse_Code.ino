@@ -1,14 +1,14 @@
-// Much of the morse code section was constructed based around this source https://www.instructables.com/id/Morse-code-with-arduinoLED/
-// However, I have modified it to include more than one LED and to use a buzzer as well.
+// A Portion of the morse code section was constructed based around this source https://www.instructables.com/id/Morse-code-with-arduinoLED/
+// However, I have modified it to include more than one LED and to use a buzzer as well, as well as other minor alterations.
 // I also followed along with the international morse code alphabet https://en.wikipedia.org/wiki/Morse_code#/media/File:International_Morse_Code.svg to help with setting up and syncing the
 // multiple LEDs.
 char input;
-int buzzerPin = 10;
+int speakerPin = 10;
 void setup () {
   pinMode (13, OUTPUT);
   pinMode (12, OUTPUT);
   pinMode (11, OUTPUT);
-  pinMode(buzzerPin, OUTPUT);
+  pinMode(speakerPin, OUTPUT);
   Serial.begin(9600);
 }
 
@@ -41,7 +41,7 @@ void loop () {
     if (input == 'x' || input == 'X') {lX();}
     if (input == 'y' || input == 'Y') {lY();}
     if (input == 'z' || input == 'Z') {lZ();}
-    if (input == '1') {n1();}// the numbers
+    if (input == '1') {n1();}
     if (input == '2') {n2();}
     if (input == '3') {n3();}
     if (input == '4') {n4();}
@@ -53,11 +53,9 @@ void loop () {
     if (input == '0') {n0();}
     if (input == ' ') {space();}
     Serial.println (input);
-    while(true){} 
-    
   }
 }
-// section used from 
+
 void lA () {dot();dash();shortspace();}
 void lB () {dash();dot();dot();dot();shortspace();}
 void lC () {dash();dot();dash();dot();shortspace();}
@@ -96,13 +94,41 @@ void n9 () {dash();dash();dash();dash();dot();shortspace();}
 void n0 () {dash();dash();dash();dash();dash();shortspace();}
 
 // geen light
-void space () {digitalWrite(11, HIGH); delay (1000); digitalWrite(11, LOW); delay(500); tone(buzzerPin, 262);}//space between words
+void space () {
+  digitalWrite(11, HIGH);
+  tone(speakerPin, 300);
+  delay (500); 
+  digitalWrite(11, LOW); 
+  delay(250);
+  noTone(speakerPin);
+  }//space between words
 
 // red light
-void dot () {digitalWrite(13, HIGH); delay (300); digitalWrite(13, LOW); delay (300); tone(buzzerPin, 262);}
+void dot () {
+  digitalWrite(13, HIGH);
+  tone(speakerPin, 260);
+  delay (300);
+  digitalWrite(13, LOW); 
+  delay (150);
+  noTone(speakerPin);
+  }
 
 // blue light
-void dash () {digitalWrite(12, HIGH); delay (900); digitalWrite(12, LOW); delay (300); tone(buzzerPin, 262);}
+void dash () {
+  digitalWrite(12, HIGH);
+  tone(speakerPin, 200);
+  delay (900); 
+  digitalWrite(12, LOW); 
+  delay (300);
+  noTone(speakerPin);
+  }
 
 // green light
-void shortspace () {digitalWrite(11, HIGH); delay(600); digitalWrite(11, LOW); delay(300); tone(buzzerPin, 262);}//space between letters
+void shortspace () {
+  digitalWrite(11, HIGH);
+  tone(speakerPin, 100);
+  delay(600); 
+  digitalWrite(11, LOW); 
+  delay(300);
+  noTone(speakerPin);
+  }//space between letters
