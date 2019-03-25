@@ -1,5 +1,5 @@
-// A Portion of the morse code section was constructed based around this source https://www.instructables.com/id/Morse-code-with-arduinoLED/
-// However, I have modified it to include more than one LED and to use a buzzer as well, as well as other minor alterations.
+// Much of the code was constructed based around this source https://www.instructables.com/id/Arduino-Morse-Code/, however was heavily modified in favour of more cleaner code.
+// I have modified it to include more than one LED and to use a buzzer as well.
 // I also followed along with the international morse code alphabet https://en.wikipedia.org/wiki/Morse_code#/media/File:International_Morse_Code.svg to help with setting up and syncing the
 // multiple LEDs.
 char input;
