@@ -12,6 +12,8 @@ void setup () {
 }
 
 void loop () {
+  //Section modified from used source, as it seemed as though the use case statements were 
+  // a little unecessary as a series of if statements seemed far more efficient in terms of functionality.
   if (Serial.available()) {
     input = Serial.read();
     if (input == 'a' || input == 'A') {lA();}
@@ -54,6 +56,7 @@ void loop () {
     Serial.println (input);
   }
 }
+//End of Modified Code.
 
 void lA () {dot();dash();shortspace();}
 void lB () {dash();dot();dot();dot();shortspace();}
