@@ -99,9 +99,9 @@ void n0 () {dash();dash();dash();dash();dash();shortspace();}
 void space () {
   digitalWrite(11, HIGH);
   tone(speakerPin, 300);
-  delay (500); 
+  delay (300); 
   digitalWrite(11, LOW); 
-  delay(250);
+  delay(150);
   noTone(speakerPin);
   }//space between words
 
@@ -119,9 +119,9 @@ void dot () {
 void dash () {
   digitalWrite(12, HIGH);
   tone(speakerPin, 200);
-  delay (900); 
+  delay (300); 
   digitalWrite(12, LOW); 
-  delay (300);
+  delay (150);
   noTone(speakerPin);
   }
 
@@ -129,8 +129,8 @@ void dash () {
 void shortspace () {
   digitalWrite(11, HIGH);
   tone(speakerPin, 100);
-  delay(600); 
+  delay(300); 
   digitalWrite(11, LOW); 
-  delay(300);
+  delay(150);
   noTone(speakerPin);
   }//space between letters
